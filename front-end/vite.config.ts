@@ -8,6 +8,8 @@ export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
+      'balm-ui-plus': 'balm-ui/dist/balm-ui-plus.esm.js',
+      'balm-ui-css': 'balm-ui/dist/balm-ui.css',
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   }
