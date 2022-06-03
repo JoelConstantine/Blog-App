@@ -4,15 +4,14 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 
-import BalmUI from 'balm-ui'; // Official Google Material Components
-import BalmUIPlus from 'balm-ui-plus'; // BalmJS Team Material Components
-import 'balm-ui-css';
+import { createVuestic  } from 'vuestic-ui' 
+import 'vuestic-ui/dist/vuestic-ui.css' 
+
 
 const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
-app.use(BalmUI)
-app.use(BalmUIPlus)
+app.use(createVuestic())
 
 app.mount('#app')

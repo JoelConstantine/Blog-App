@@ -7,8 +7,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "balm-ui-plus": ["./node_modules/balm-ui/dist/balm-ui-plus.d.ts"],
-      "balm-ui-css": ["./node_modules/balm-ui/dist/balm-ui.css"],
+      "balm-ui-plus": ["node_modules/balm-ui/dist/balm-ui-plus.d.ts"],
+      "balm-ui-next": ["node_modules/balm-ui/dist/balm-ui-next.d.ts"]
     }
   }
 }
