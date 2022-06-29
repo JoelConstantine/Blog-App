@@ -1,6 +1,10 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import FormLayout from '../views/FormLayout.vue'
+import {
+  createRouter,
+  createWebHistory,
+  type RouteLocationNormalized,
+} from 'vue-router'
+import * as Post from '@/domain/Post'
+import { usePosts } from '@/stores/posts'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -8,17 +12,41 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: FormLayout
+      redirect: { name: 'addPost' },
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/FormLayout.vue')
-    }
-  ]
+      path: '/posts',
+      name: 'posts',
+      component: () => import('../views/BaseLayout.vue'),
+      children: [
+        {
+          path: 'add',
+          name: 'addPost',
+          component: () => import('../views/Posts/EditPost.vue'),
+          props: {
+            post: Post.create(),
+          },
+        },
+        {
+          path: 'edit/:postId',
+          name: 'editPost',
+          component: () => import('../views/Posts/EditPost.vue'),
+          props: (route: RouteLocationNormalized) => {
+            const store = usePosts()
+            const postId: string = route.params.postId as string
+            const post = store.getPostById(postId)
+            if (!post) {
+              router.push('/posts/add')
+            }
+
+            return {
+              post: Post.create(store.getPostById(postId)),
+            }
+          },
+        },
+      ],
+    },
+  ],
 })
 
 export default router
