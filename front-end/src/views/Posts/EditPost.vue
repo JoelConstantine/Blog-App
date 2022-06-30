@@ -20,7 +20,6 @@ import type { Post } from '@/domain/Post'
 export interface EditPostProps {
   post: Post
 }
-
 const emits = defineEmits(['savePost'])
 
 const props = defineProps<EditPostProps>()

@@ -1,10 +1,12 @@
-import * as ApiService from '@/infrastructure/api/basicApi'
+import { ApiService } from './infrastructure/api/basicApi'
+import type { ApiService } from '@/infrastructure/api/basicApi'
+import * as apiService from '@/infrastructure/api/basicApi'
 import makePostsRepository from './infrastructure/posts/postsRepository'
-import makeAddPosts from './application/addPoss'
+import makeAddPosts from './application/addPost'
 
 // Repos
 const postRepository = makePostsRepository({
-  ApiService,
+  apiService,
 })
 
 // Actions

@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { fileURLToPath, URL } from 'url'
 
 import { defineConfig } from 'vite'
@@ -10,7 +11,10 @@ export default defineConfig({
     alias: {
       'balm-ui-plus': 'balm-ui/dist/balm-ui-plus.esm.js',
       'balm-ui-css': 'balm-ui/dist/balm-ui.css',
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
-  }
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+  },
+  test: {
+    root: '/',
+  },
 })

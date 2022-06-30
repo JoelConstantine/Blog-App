@@ -3,8 +3,8 @@ export type ApiService = {
   post: (item: unknown) => Promise<unknown>
 }
 
-type RequestWithoutData = (type: string, options: unknown) => Promise<Post>
-type RequestWithData = (type: string, options: unknown) => Promise<Post>
+type RequestWithoutData = (type: string, options) => Promise<Post>
+type RequestWithData = (type: string, options) => Promise<Post>
 type Request = RequestWithData | RequestWithoutData
 
 type Response = {
