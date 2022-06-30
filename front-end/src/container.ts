@@ -1,5 +1,3 @@
-import { ApiService } from './infrastructure/api/basicApi'
-import type { ApiService } from '@/infrastructure/api/basicApi'
 import * as apiService from '@/infrastructure/api/basicApi'
 import makePostsRepository from './infrastructure/posts/postsRepository'
 import makeAddPosts from './application/addPost'

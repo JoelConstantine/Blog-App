@@ -30,8 +30,9 @@ const api = {
     }
   },
 }
+
 const handleError = (error: unknown) => {
   return error
 }
 
-export const post: Response = requestWrapper(api.post)
+export const post = requestWrapper(api.post)
